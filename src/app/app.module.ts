@@ -12,6 +12,9 @@ import { FooterComponent } from './footer/footer.component';
 import {RouterModule} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CarouselModule} from "ngx-owl-carousel-o";
+import { ProductsComponent } from './products/products.component';
+import { ProductsItemComponent } from './products/products-item/products-item.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import {CarouselModule} from "ngx-owl-carousel-o";
     RecentProductsComponent,
     CarouselComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    ProductsComponent,
+    ProductsItemComponent
   ],
   imports: [
     BrowserModule,
