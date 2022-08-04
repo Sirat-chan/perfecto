@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {OwlOptions} from "ngx-owl-carousel-o";
 
 @Component({
   selector: 'app-carousel',
@@ -6,16 +7,48 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
+
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
+  }
   imageSrc: string=  '../../../assets/carousel-1%20(1).svg';
    imagesSrc: string[] = [
     '../../../assets/carousel-1%20(1).svg',
     '../../../assets/carousel-2%20(1).svg',
     '../../../assets/carousel-3%20(1).svg'
   ]
+  // @ts-ignore
+  private slider= document.getElementById("slider") ;
+
+  private defaultTransform=0 ;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.slider = document.getElementById("slider");
+    this.defaultTransform=0
   }
 
   onNext() {
@@ -32,5 +65,18 @@ this.imageSrc=this.imagesSrc[1];
 
   }
 
+  goNext() {
+    this.defaultTransform = this.defaultTransform - 398;
+    // @ts-ignore
+    if (Math.abs(this.defaultTransform) >= this.slider.scrollWidth / 1.7) this.defaultTransform = 0;
+    // @ts-ignore
+    this.slider.style.transform = "translateX(" + this.defaultTransform + "px)";
+  }
+  goPrev() {
 
+    if (Math.abs(this.defaultTransform) === 0) this.defaultTransform = 0;
+    else this.defaultTransform = this.defaultTransform + 398;
+    // @ts-ignore
+    this.slider.style.transform = "translateX(" + this.defaultTransform + "px)";
+  }
 }

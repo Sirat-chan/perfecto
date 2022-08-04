@@ -9,6 +9,9 @@ import { RecentProductsComponent } from './home/recent-products/recent-products.
 import { CarouselComponent } from './home/carousel/carousel.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
+import {RouterModule} from "@angular/router";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {CarouselModule} from "ngx-owl-carousel-o";
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
