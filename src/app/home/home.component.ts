@@ -7,7 +7,6 @@ import {product} from "../products/products.model";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
- products: product[] | undefined;
   constructor() { }
 
   ngOnInit(): void {
