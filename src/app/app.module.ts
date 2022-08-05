@@ -11,7 +11,20 @@ import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductsItemComponent } from './products/products-item/products-item.component';
+import {productsService} from "./products/products.service";
+import {RouterModule, Routes} from "@angular/router";
+import { AboutComponent } from './about/about.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 
+const appRoutes : Routes =[
+  {path:'', component: HomeComponent},
+  {path:'About', component: AboutComponent},
+  {path:'Categories', component:CategoriesComponent },
+  {path:'Notifications', component:NotificationsComponent},
+  {path:'MyFavorites', component:MyFavoritesComponent}
+];
 
 @NgModule({
   declarations: [
@@ -24,12 +37,17 @@ import { ProductsItemComponent } from './products/products-item/products-item.co
     LoginComponent,
     FooterComponent,
     ProductsComponent,
-    ProductsItemComponent
+    ProductsItemComponent,
+    AboutComponent,
+    CategoriesComponent,
+    NotificationsComponent,
+    MyFavoritesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [productsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
