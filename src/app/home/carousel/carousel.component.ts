@@ -33,11 +33,11 @@ export class CarouselComponent implements OnInit {
     },
     nav: true
   }
-  imageSrc: string=  '../../../assets/carousel-1%20(1).svg';
+  imageSrc: string=  '../../../assets/slider1.jpg';
    imagesSrc: string[] = [
-    '../../../assets/carousel-1%20(1).svg',
-    '../../../assets/carousel-2%20(1).svg',
-    '../../../assets/carousel-3%20(1).svg'
+    '../../../assets/slider1.jpg',
+    '../../../assets/slider2.jpg',
+    '../../../assets/slider3.jpg'
   ]
   // @ts-ignore
   private slider= document.getElementById("slider") ;
@@ -52,7 +52,8 @@ export class CarouselComponent implements OnInit {
   }
 
   onNext() {
-this.imageSrc=this.imagesSrc[1];
+    let index =this.imagesSrc.indexOf(this.imageSrc)
+    this.imageSrc=this.imagesSrc[index+1];
   }
 
   onPrevious(){

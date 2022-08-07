@@ -1,10 +1,5 @@
 <app-products-item
-  *ngFor="let product of products"></app-products-item>
-<div class="row">
-  <div class="col-xs-12">
-    <app-products-item
-      *ngFor="let productEl of products; let i = index"
-      [product]="productEl"
-      [index]="i"></app-products-item>
-  </div>
-</div>
+  *ngFor="let productEl of products; let i = index"
+  [product]="productEl"
+  [index]="i"></app-products-item>
+
