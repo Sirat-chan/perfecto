@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import{Product} from "../products.model";
-import {productsService} from "../products.service";
+import{Product} from "../product.model";
+import {ProductsService} from "../products.service";
 
 @Component({
   selector: 'app-products-item',
@@ -9,11 +9,14 @@ import {productsService} from "../products.service";
 })
 export class ProductsItemComponent implements OnInit {
 // @ts-ignore
-  @Input() product : Product;
-  constructor(private productsService: productsService) { }
+  @Input() product: Product;
+  // @ts-ignore
+  @Input() index: number;
 
-  ngOnInit(): void {
+  constructor(private productsService: ProductsService) {
   }
 
+  ngOnInit(): void {
 
+  }
 }

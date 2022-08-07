@@ -1,2 +1,5 @@
-<app-products
-  *ngFor="let product of products"></app-products>
+<li role="presentation" class="active"><a routerLink="/Products">Products</a> </li>
+<app-products-item
+  *ngFor="let productEl of products; let i = index"
+  [product]="productEl"
+  [index]="i"></app-products-item>
