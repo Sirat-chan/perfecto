@@ -1,5 +1,5 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -14,20 +14,16 @@ import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductsItemComponent } from './products/products-item/products-item.component';
-import {ProductsService} from "./products/products.service";
+import {productsService} from "./products/products.service";
 import {RouterModule, Routes} from "@angular/router";
 import { AboutComponent } from './about/about.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {AppRoutingModule} from "./app-routing.module";
 
-const appRoutes : Routes =[
-  {path:'', component: HomeComponent},
-  {path:'About', component: AboutComponent},
-  {path:'Categories', component:CategoriesComponent },
-  {path:'Notifications', component:NotificationsComponent},
-  {path:'MyFavorites', component:MyFavoritesComponent}
-];
+
 
 @NgModule({
   declarations: [
@@ -44,10 +40,12 @@ const appRoutes : Routes =[
     AboutComponent,
     CategoriesComponent,
     NotificationsComponent,
-    MyFavoritesComponent
+    MyFavoritesComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule
     RouterModule.forRoot(appRoutes),
     RouterModule,
     BrowserAnimationsModule,
@@ -56,5 +54,4 @@ const appRoutes : Routes =[
   providers: [ProductsService],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

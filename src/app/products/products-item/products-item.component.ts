@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Product} from "../product.model";
+import{Product} from "../product.model";
 import {ProductsService} from "../products.service";
 
 @Component({
@@ -8,7 +8,7 @@ import {ProductsService} from "../products.service";
   styleUrls: ['./products-item.component.css']
 })
 export class ProductsItemComponent implements OnInit {
-  // @ts-ignore
+// @ts-ignore
   @Input() product: Product;
   // @ts-ignore
   @Input() index: number;
@@ -20,6 +20,3 @@ export class ProductsItemComponent implements OnInit {
 
   }
 }
-
-
-
