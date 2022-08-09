@@ -8,6 +8,7 @@ import {HomeComponent} from "./home/home.component";
 import {ProductsComponent} from "./products/products.component";
 import {ProductsItemComponent} from "./products/products-item/products-item.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {LoginComponent} from "./login/login.component";
 const appRoutes: Routes=[
    {path:'', component: HomeComponent},
    {path:'about', component: AboutComponent},
@@ -17,6 +18,7 @@ const appRoutes: Routes=[
   {path:'products', component: ProductsComponent , children: [
     {path:':name/:imageSrc/:price/:availability/products-item', component: ProductsItemComponent},
     ]},
+  {path:'login', component:LoginComponent},
   {path:'not-found', component: PageNotFoundComponent},
   {path:'**', redirectTo:'/not-found'}
 ];

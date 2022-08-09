@@ -1,5 +1,7 @@
 <li role="presentation" class="active"><a routerLink="/Products">Products</a> </li>
+<div class="flex items-center">
 <app-products-item
   *ngFor="let productEl of products; let i = index"
   [product]="productEl"
   [index]="i"></app-products-item>
+</div>
