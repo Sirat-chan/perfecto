@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+ data="abc";
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -15,5 +16,17 @@ export class HeaderComponent implements OnInit {
 
   onLoadLogin() {
   this.router.navigate(['/login'])
+  }
+
+  onSearch(value:any) {
+    this.router.navigate(['/search' , this.data])
+  }
+
+  onSubmit(form: NgForm) {
+    const value = form.value;
+    console.log(value)
+    let kw=value.search;
+    console.log(kw)
+
   }
 }

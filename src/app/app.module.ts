@@ -18,7 +18,12 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
-
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { SearchComponent } from './products/search/search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import { NavsideComponent } from './navside/navside.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -37,11 +42,17 @@ import {AppRoutingModule} from "./app-routing.module";
     CategoriesComponent,
     NotificationsComponent,
     MyFavoritesComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ContactUsComponent,
+    SearchComponent,
+    NavsideComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    FormsModule
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]
