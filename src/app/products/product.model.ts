@@ -13,3 +13,12 @@ export class Product{
    this.note=note;
  }
 }
+
+// id: number;
+// name: string;
+// quantity : number;
+// description : string;
+// imageSrc: string;
+// price: number;
+// availability: boolean;
+// note: number;

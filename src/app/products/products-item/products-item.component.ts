@@ -8,10 +8,10 @@ import {ProductsService} from "../products.service";
   styleUrls: ['./products-item.component.css']
 })
 export class ProductsItemComponent implements OnInit {
-// @ts-ignore
-  @Input() product: Product;
-  // @ts-ignore
-  @Input() index: number;
+
+  @Input() product!: Product;
+
+  @Input() index!: number;
 
   constructor(private productsService: ProductsService) {
   }

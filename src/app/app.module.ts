@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -23,6 +24,8 @@ import {MyFavoritesComponent} from './my-favorites/my-favorites.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { ProductInfopageComponent } from './product-infopage/product-infopage.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -44,13 +47,17 @@ import { ProductInfopageComponent } from './product-infopage/product-infopage.co
     PageNotFoundComponent,
     ProductInfopageComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule,
-    BrowserAnimationsModule,
-    CarouselModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterModule,
+        BrowserAnimationsModule,
+        CarouselModule,
+        HttpClientModule,
+        MatSidenavModule,
+        ReactiveFormsModule,
+        FormsModule
+    ],
   providers: [ProductsService],
   bootstrap: [AppComponent]
 })
