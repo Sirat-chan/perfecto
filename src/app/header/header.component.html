@@ -26,7 +26,10 @@
           </li>
 
           <li>
-            <a class="text-gray-500 transition hover:text-green-600" routerLink="/products">
+            <a class="text-gray-500 transition hover:text-green-600"
+               routerLink="/products/search"
+               [queryParams]="{keyword:''}"
+            >
               Products
             </a>
           </li>

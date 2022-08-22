@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import{Product} from "../product.model";
-import {ProductsService} from "../products.service";
 
 @Component({
   selector: 'app-products-item',
@@ -13,7 +12,7 @@ export class ProductsItemComponent implements OnInit {
 
   @Input() index!: number;
 
-  constructor(private productsService: ProductsService) {
+  constructor() {
   }
 
   ngOnInit(): void {

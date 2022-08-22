@@ -15,7 +15,6 @@ import {LoginComponent} from './login/login.component';
 import {FooterComponent} from './footer/footer.component';
 import {ProductsComponent} from './products/products.component';
 import {ProductsItemComponent} from './products/products-item/products-item.component';
-import {ProductsService} from "./products/products.service";
 import {RouterModule, Routes} from "@angular/router";
 import {AboutComponent} from './about/about.component';
 import {CategoriesComponent} from './categories/categories.component';
@@ -23,7 +22,7 @@ import {NotificationsComponent} from './notifications/notifications.component';
 import {MyFavoritesComponent} from './my-favorites/my-favorites.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
-import { ProductInfopageComponent } from './product-infopage/product-infopage.component';
+import { ProductInfopageComponent } from './products/product-infopage/product-infopage.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
@@ -58,7 +57,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         ReactiveFormsModule,
         FormsModule
     ],
-  providers: [ProductsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {ProductsService} from "../products/products.service";
 import {HttpClient} from "@angular/common/http";
 
 @Component({
@@ -13,7 +12,6 @@ export class ProductInfopageComponent implements OnInit {
    product: any;
 
   constructor(private route: ActivatedRoute,
-              private productService: ProductsService,
               private http : HttpClient) { }
 
   ngOnInit(): void {

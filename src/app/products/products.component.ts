@@ -1,12 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
-import {ProductsService} from "./products.service";
-import {HttpClient} from "@angular/common/http";
-import {data} from "autoprefixer";
 import {catchError, Observable, throwError} from "rxjs";
-import {FormBuilder, FormGroup, NgForm} from "@angular/forms";
+import { NgForm} from "@angular/forms";
 import {ProductService} from "../services/product.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Product} from "./product.model";
 
 @Component({
@@ -15,30 +12,46 @@ import {Product} from "./product.model";
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  products$! : Observable<Array<Product>>;
+  products$!: Observable<Array<Product>>;
   errorMessage!: string;
-  constructor(private productsService: ProductsService,
+  kw!: string;
+
+// @ViewChild('f') searchForm! : NgForm;
+  constructor(
               private productService: ProductService,
-              private router: Router
-  ) { }
+              private router: Router,
+              private route: ActivatedRoute
+  ) {
+  }
 
   ngOnInit(): void {
-
+    this.route.queryParams
+      .subscribe(
+        (queryParams: Params) => {
+          this.kw = queryParams['keyword'];
+          console.log(this.kw)
+        }
+      );
+    this.fetchProducts()
   }
+
   onSubmit(form: NgForm) {
     console.log(form)
     const value = form.value;
     console.log(value)
-    let kw=value.search;
-    console.log(kw)
-    // this.router.navigate(['/search'], {queryParams:{keyword: kw}})
-    this.products$=this.productService.searchProducts(kw).pipe(
+    this.kw = value.search;
+    this.router.navigate(['/products/search'], {queryParams: {keyword: this.kw}})
+    this.fetchProducts()
+  }
+
+  fetchProducts() {
+    this.products$ = this.productService.searchProducts(this.kw).pipe(
       catchError(err => {
-        this.errorMessage=err.message;
+        this.errorMessage = err.message;
         return throwError(err);
       })
     );
     console.log(this.products$)
-
   }
+
 }
