@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   this.router.navigate(['/login'])
   }
 
-  onSearch(value:any) {
+  onSearch() {
     this.router.navigate(['/search' , this.data])
   }
 
