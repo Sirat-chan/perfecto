@@ -4,15 +4,15 @@ export class Product{
  public imageSrc: string;
  public price : number;
  public availability : boolean;
- public note : number;
+ public rating : number;
 
-  constructor(id: number,name: string, imageS: string, price: number, availability: boolean, note: number) {
+  constructor(id: number,name: string, imageS: string, price: number, availability: boolean, rating: number) {
     this.id=id;
    this.name=name;
    this.imageSrc=imageS;
    this.price=price;
    this.availability=availability;
-   this.note=note;
+   this.rating=rating;
  }
 }
 

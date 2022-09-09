@@ -13,14 +13,32 @@ export class ProductService {
   public getProducts():Observable<Array<Product>>{
     return this.http.get<Array<Product>>(environment.backendHost+"/products")
   }
+
+  public getRecentProducts():Observable<Array<Product>>{
+    return this.http.get<Array<Product>>(environment.backendHost+"/products"+"/recent")
+  }
+  public getTopRatedProducts():Observable<Array<Product>>{
+    return this.http.get<Array<Product>>(environment.backendHost+"/products"+"/toprated")
+  }
+
+  public getCategories():Observable<Array<any>>{
+    return this.http.get<Array<any>>(environment.backendHost+"/categories")
+  }
   public searchProducts(keyword : string):Observable<Array<Product>>{
     return this.http.get<Array<Product>>(environment.backendHost+"/products/search?keyword="+keyword)
   }
-  public saveProduct(customer: Product):Observable<Product>{
-    return this.http.post<Product>(environment.backendHost+"/products",customer);
+  public saveProduct(product: Product):Observable<Product>{
+    return this.http.post<Product>(environment.backendHost+"/products",product);
   }
   public deleteProduct(id: number){
     return this.http.delete(environment.backendHost+"/products/"+id);
   }
 
+  public addProductToFavorites(){
+
+  }
+
+  methodefservicelibchtaadivaleur(valeur: boolean) {
+
+  }
 }

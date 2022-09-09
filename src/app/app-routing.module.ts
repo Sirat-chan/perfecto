@@ -10,6 +10,7 @@ import {ProductsItemComponent} from "./products/products-item/products-item.comp
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {ProductInfopageComponent} from "./products/product-infopage/product-infopage.component";
 import {LoginComponent} from "./login/login.component";
+import {TestComponent} from "./test/test.component";
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
   {path: 'products/search', component: ProductsComponent},
   {path: 'product/:id', component: ProductInfopageComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'test', component: TestComponent},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 ];

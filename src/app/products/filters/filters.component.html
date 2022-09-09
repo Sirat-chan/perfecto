@@ -1,0 +1,236 @@
+<!--<details open class="overflow-hidden border border-gray-200 rounded">-->
+<!--  <summary-->
+<!--    class="flex items-center justify-between px-5 py-3 bg-gray-100 lg:hidden"-->
+<!--  >-->
+<!--    <span class="text-sm font-medium"> Toggle Filters </span>-->
+
+<!--    <svg-->
+<!--      class="w-5 h-5"-->
+<!--      xmlns="http://www.w3.org/2000/svg"-->
+<!--      fill="none"-->
+<!--      viewBox="0 0 24 24"-->
+<!--      stroke="currentColor"-->
+<!--    >-->
+<!--      <path-->
+<!--        stroke-linecap="round"-->
+<!--        stroke-linejoin="round"-->
+<!--        stroke-width="2"-->
+<!--        d="M4 6h16M4 12h16M4 18h16"-->
+<!--      />-->
+<!--    </svg>-->
+<!--  </summary>-->
+
+<!--  <form action="" class="border-t border-gray-200 lg:border-t-0">-->
+<!--    <fieldset>-->
+<!--      <legend class="block w-full px-5 py-3 text-xs font-medium bg-gray-50">-->
+<!--        Type-->
+<!--      </legend>-->
+
+<!--      <div class="px-5 py-6 space-y-2">-->
+<!--        <div class="flex items-center">-->
+<!--          <input-->
+<!--            id="toy"-->
+<!--            type="checkbox"-->
+<!--            name="type[toy]"-->
+<!--            class="w-5 h-5 border-gray-300 rounded"-->
+<!--          />-->
+
+<!--          <label for="toy" class="ml-3 text-sm font-medium"> Toy </label>-->
+<!--        </div>-->
+
+<!--        <div class="flex items-center">-->
+<!--          <input-->
+<!--            id="game"-->
+<!--            type="checkbox"-->
+<!--            name="type[game]"-->
+<!--            class="w-5 h-5 border-gray-300 rounded"-->
+<!--          />-->
+
+<!--          <label for="game" class="ml-3 text-sm font-medium"> Game </label>-->
+<!--        </div>-->
+
+<!--        <div class="flex items-center">-->
+<!--          <input-->
+<!--            id="outdoor"-->
+<!--            type="checkbox"-->
+<!--            name="type[outdoor]"-->
+<!--            class="w-5 h-5 border-gray-300 rounded"-->
+<!--          />-->
+
+<!--          <label for="outdoor" class="ml-3 text-sm font-medium">-->
+<!--            Outdoor-->
+<!--          </label>-->
+<!--        </div>-->
+
+<!--        <div class="pt-2">-->
+<!--          <button type="button" class="text-xs text-gray-500 underline">-->
+<!--            Reset Type-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </fieldset>-->
+
+<!--    <div>-->
+<!--      <fieldset>-->
+<!--        <legend class="block w-full px-5 py-3 text-xs font-medium bg-gray-50">-->
+<!--          Age-->
+<!--        </legend>-->
+
+<!--        <div class="px-5 py-6 space-y-2">-->
+<!--          <div class="flex items-center">-->
+<!--            <input-->
+<!--              id="3+"-->
+<!--              type="checkbox"-->
+<!--              name="age[3+]"-->
+<!--              class="w-5 h-5 border-gray-300 rounded"-->
+<!--            />-->
+
+<!--            <label for="3+" class="ml-3 text-sm font-medium"> 3+ </label>-->
+<!--          </div>-->
+
+<!--          <div class="flex items-center">-->
+<!--            <input-->
+<!--              id="8+"-->
+<!--              type="checkbox"-->
+<!--              name="age[8+]"-->
+<!--              class="w-5 h-5 border-gray-300 rounded"-->
+<!--            />-->
+
+<!--            <label for="8+" class="ml-3 text-sm font-medium"> 8+ </label>-->
+<!--          </div>-->
+
+<!--          <div class="flex items-center">-->
+<!--            <input-->
+<!--              id="12+"-->
+<!--              type="checkbox"-->
+<!--              name="age[12+]"-->
+<!--              class="w-5 h-5 border-gray-300 rounded"-->
+<!--            />-->
+
+<!--            <label for="12+" class="ml-3 text-sm font-medium"> 12+ </label>-->
+<!--          </div>-->
+
+<!--          <div class="flex items-center">-->
+<!--            <input-->
+<!--              id="16+"-->
+<!--              type="checkbox"-->
+<!--              name="age[16+]"-->
+<!--              class="w-5 h-5 border-gray-300 rounded"-->
+<!--            />-->
+
+<!--            <label for="16+" class="ml-3 text-sm font-medium"> 16+ </label>-->
+<!--          </div>-->
+
+<!--          <div class="pt-2">-->
+<!--            <button type="button" class="text-xs text-gray-500 underline">-->
+<!--              Reset Age-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </fieldset>-->
+<!--    </div>-->
+
+<!--    <div class="flex justify-between px-5 py-3 border-t border-gray-200">-->
+<!--      <button-->
+<!--        name="reset"-->
+<!--        type="button"-->
+<!--        class="text-xs font-medium text-gray-600 underline rounded"-->
+<!--      >-->
+<!--        Reset All-->
+<!--      </button>-->
+
+<!--      <button-->
+<!--        name="commit"-->
+<!--        type="button"-->
+<!--        class="px-5 py-3 text-xs font-medium text-white bg-green-600 rounded"-->
+<!--      >-->
+<!--        Apply Filters-->
+<!--      </button>-->
+<!--    </div>-->
+<!--  </form>-->
+<!--</details>-->
+
+
+<!-- sidebar -->
+<div class="col-span-1 bg-white px-4 pb-6 shadow rounded overflow-hidden">
+  <div class="divide-y divide-gray-200 space-y-5">
+    <div>
+      <h3 class="text-xl text-gray-800 mb-3 uppercase font-medium">Categories</h3>
+      <div class="space-y-2 overflow-auto h-32">
+        <div class="flex items-center" *ngFor="let categoryEl of categories$ | async; let i = index">
+          <input type="checkbox" name="cat-1" id="cat-1"
+                 class="text-primary focus:ring-0 rounded-sm cursor-pointer">
+          <label for="cat-1" class="text-gray-600 ml-3 cusror-pointer">{{categoryEl.name}}</label>
+          <div class="ml-auto text-gray-600 text-sm">(15)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-4 ">
+      <h3 class="text-xl text-gray-800 mb-3 uppercase font-medium">Brands</h3>
+      <div class="space-y-2 overflow-auto h-32">
+        <div class="flex items-center">
+          <input type="checkbox" name="brand-1" id="brand-1"
+                 class="text-primary focus:ring-0 rounded-sm cursor-pointer">
+          <label for="brand-1" class="text-gray-600 ml-3 cusror-pointer">Xiaomi</label>
+          <div class="ml-auto text-gray-600 text-sm">(15)</div>
+        </div>
+        <div class="flex items-center">
+          <input type="checkbox" name="brand-2" id="brand-2"
+                 class="text-primary focus:ring-0 rounded-sm cursor-pointer">
+          <label for="brand-2" class="text-gray-600 ml-3 cusror-pointer">Samsung</label>
+          <div class="ml-auto text-gray-600 text-sm">(9)</div>
+        </div>
+        <div class="flex items-center">
+          <input type="checkbox" name="brand-3" id="brand-3"
+                 class="text-primary focus:ring-0 rounded-sm cursor-pointer">
+          <label for="brand-3" class="text-gray-600 ml-3 cusror-pointer">Hp</label>
+          <div class="ml-auto text-gray-600 text-sm">(21)</div>
+        </div>
+        <div class="flex items-center">
+          <input type="checkbox" name="brand-4" id="brand-4"
+                 class="text-primary focus:ring-0 rounded-sm cursor-pointer">
+          <label for="brand-4" class="text-gray-600 ml-3 cusror-pointer">Apple</label>
+          <div class="ml-auto text-gray-600 text-sm">(10)</div>
+        </div>
+        <div class="flex items-center">
+          <input type="checkbox" name="brand-5" id="brand-5"
+                 class="text-primary focus:ring-0 rounded-sm cursor-pointer">
+          <label for="brand-5" class="text-gray-600 ml-3 cusror-pointer">Msi</label>
+          <div class="ml-auto text-gray-600 text-sm">(10)</div>
+        </div>
+        <div class="flex items-center">
+          <input type="checkbox" name="brand-2" id="brand-6"
+                 class="text-primary focus:ring-0 rounded-sm cursor-pointer">
+          <label for="brand-2" class="text-gray-600 ml-3 cusror-pointer">Lenovo</label>
+          <div class="ml-auto text-gray-600 text-sm">(13)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-4 ">
+      <h3 class="text-xl text-gray-800 mb-3 uppercase font-medium">Price</h3>
+      <div class="mt-4 flex items-center">
+        <input type="text" name="min" id="min"
+               class="w-full border-gray-300 focus:border-primary rounded focus:ring-0 px-3 py-1 text-gray-600 shadow-sm"
+               placeholder="min">
+        <span class="mx-3 text-gray-500">-</span>
+        <input type="text" name="max" id="max"
+               class="w-full border-gray-300 focus:border-primary rounded focus:ring-0 px-3 py-1 text-gray-600 shadow-sm"
+               placeholder="max">
+      </div>
+      <div class="flex align-middle ">
+      <div class="flex items-center pt-2">
+      <a href="#"
+         class="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:bg-transparent hover:text-primary transition">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+          <path d="M8.25 10.875a2.625 2.625 0 115.25 0 2.625 2.625 0 01-5.25 0z" />
+          <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.125 4.5a4.125 4.125 0 102.338 7.524l2.007 2.006a.75.75 0 101.06-1.06l-2.006-2.007a4.125 4.125 0 00-3.399-6.463z" clip-rule="evenodd" />
+        </svg>
+        Apply
+      </a></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ./sidebar -->

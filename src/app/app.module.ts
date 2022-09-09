@@ -23,8 +23,12 @@ import {MyFavoritesComponent} from './my-favorites/my-favorites.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { ProductInfopageComponent } from './products/product-infopage/product-infopage.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { TestComponent } from './test/test.component';
+import { FiltersComponent } from './products/filters/filters.component';
+import { CategoryItemComponent } from './categories/category-item/category-item.component';
+import {AuthInterceptor} from "./login/auth.interceptor";
 
 
 @NgModule({
@@ -44,7 +48,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     NotificationsComponent,
     MyFavoritesComponent,
     PageNotFoundComponent,
-    ProductInfopageComponent
+    ProductInfopageComponent,
+    TestComponent,
+    FiltersComponent,
+    CategoryItemComponent
   ],
     imports: [
         BrowserModule,
@@ -57,7 +64,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         ReactiveFormsModule,
         FormsModule
     ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

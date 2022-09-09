@@ -1,4 +1,4 @@
-<div class="flex items-center justify-center mb-4">
+<div class="flex items-center justify-center mb-4 ">
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="relative text-gray-600 ">
       <span class="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -18,135 +18,201 @@
 </div>
 
 
-<!--<div class="flex items-center flex-wrap ">-->
-<div class="flex justify-center w-full">
-  <div class="flex flex-wrap justify-center">
-    <app-products-item
-      *ngFor="let productEl of products$ | async; let i = index"
-      [product]="productEl"
-      [index]="i"></app-products-item>
-  </div>
+<div class="container py-4 flex  gap-3">
+  <a href="/" class="text-primary text-base">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+      <path
+        d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"/>
+      <path
+        d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z"/>
+    </svg>
+  </a>
+  <span class="text-sm font-bold text-slate-900">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+  <path fill-rule="evenodd"
+        d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
+        clip-rule="evenodd"/>
+</svg>
+        </span>
+  <p class="text-gray-600 font-medium ">Products</p>
 </div>
+<div class="container grid grid-cols-4 gap-6 pt-4 pb-16 items-start">
+  <div>
+    <app-filters></app-filters>
+  </div>
+  <!--  <div class="flex-1 w-[80%] ">-->
+  <!--    <div class="flex justify-center w-full">-->
+  <!--      <div class="flex flex-wrap justify-center">-->
+  <!--        <app-products-item-->
+  <!--          *ngFor="let productEl of products$ | async; let i = index"-->
+  <!--          [product]="productEl"-->
+  <!--          [index]="i"></app-products-item>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
 
-<!--<div class="pt-2 relative mx-auto text-gray-600">-->
-<!--  <form (ngSubmit)="onSubmit(f)" #f="ngForm">-->
-<!--    <input class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"-->
-<!--           type="search" name="search"-->
-<!--           ngModel placeholder="Search">-->
-<!--    <button type="submit" class="relative right-0 top-0 mt-5 mr-4">-->
+  <div class="col-span-3">
+    <div class="flex items-center mb-4">
+      <select name="sort" id="sort"
+              class="w-44 text-sm text-gray-600 py-3 px-4 border-gray-300 shadow-sm rounded focus:ring-primary focus:border-primary">
+        <option value="">Default sorting</option>
+        <option value="price-low-to-high">Price low to high</option>
+        <option value="price-high-to-low">Price high to low</option>
+        <option value="latest">Latest product</option>
+      </select>
 
-<!--      <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"-->
-<!--           xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"-->
-<!--           viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"-->
-<!--           width="512px" height="512px">-->
-<!--            <path-->
-<!--              d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"/>-->
-<!--          </svg>-->
-<!--    </button>-->
-<!--  </form>-->
-<!--</div>-->
+      <div class="flex gap-2 ml-auto">
+        <div
+          class=" border border-primary px-1 w-10 h-9 flex items-center justify-center text-white bg-primary rounded cursor-pointer">
+          <svg class="fill-slate-50" width="512px" height="512px" viewBox="-96 0 512 512"
+               xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M96 32H32C14.33 32 0 46.33 0 64v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32V64c0-17.67-14.33-32-32-32zm0 160H32c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zm0 160H32c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zM288 32h-64c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32V64c0-17.67-14.33-32-32-32zm0 160h-64c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zm0 160h-64c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32z"/>
+          </svg>
+        </div>
+        <div
+          class="border border-gray-300 w-10 h-9 flex items-center justify-center text-gray-600 rounded cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+               stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+          </svg>
 
+        </div>
+      </div>
+    </div>
 
-<!--<div class="max-w-m">-->
-<!--  <div class="flex items-center ">-->
-<!--    <input-->
-<!--      class="mx-4 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"-->
-<!--      id="inline-password" type="text" placeholder="id to search">-->
-<!--    <button-->
-<!--      class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" (click)="onSearch()">-->
-<!--      Search-->
-<!--    </button>-->
-<!--  </div>-->
-<!--</div>-->
-
-<!--<form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchProducts()">-->
-<!--  <div class="max-w-m">-->
-<!--    <div class="flex items-center ">-->
-<!--      <label class="">Keyword :</label>-->
-<!--      <input-->
-<!--        class="form-control mx-4 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"-->
-<!--        type="text" formControlName="keyword">-->
-<!--      <button-->
-<!--        class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" (click)="handleSearchProducts()">-->
-<!--        Search-->
-<!--      </button>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</form>-->
-<!--<p>{{products | json}}</p>-->
-<!--<tr *ngFor="let p of products | async">-->
-<!--              <td>{{p.note}}</td>-->
-<!--              <td>{{p.name}}</td>-->
-<!--              <td>{{p.price}}</td>-->
-<!--  <br/>-->
-
-<!--<p>{{productsss.id}}</p>-->
-<!--<p>{{productsss.name}}</p>-->
-<!--<p>{{productsss.quantity}}</p>-->
-<!--<p>{{productsss.price}}</p>-->
-<!--<div-->
-<!--  *ngFor="let p of productss; let i = index">-->
-<!--  <p>{{p.id}}</p>-->
-<!--  <p>{{p.name}}</p>-->
-<!--  <p>{{p.quantity}}</p>-->
-<!--  <p>{{p.price}}</p>-->
-<!--</div>-->
+    <div class="grid grid-cols-3 gap-6">
+      <app-products-item
+        *ngFor="let productEl of products$ | async; let i = index"
+        [product]="productEl"
+        [index]="i"></app-products-item>
+    </div>
+  </div>
 
 
-<!--<div class="container mt-2">-->
-<!--  <ng-container *ngIf="products | async as listCustomers; else failureOrLoading">-->
-<!--    <div class="">-->
-<!--      <div class="">Customers</div>-->
-<!--      <div class="">-->
-<!--        <div *ngIf="searchFormGroup">-->
-<!--          <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchProducts()">-->
-<!--            <div class="">-->
-<!--              <label class="">Keyword :</label>-->
-<!--              <input type="text" formControlName="keyword" class="form-control">-->
-<!--              <button class=" ">-->
-<!--                <i class=" "></i>-->
-<!--              </button>-->
-<!--            </div>-->
-<!--          </form>-->
-<!--        </div>-->
-<!--        <table class="">-->
-<!--          <thead>-->
-<!--          <tr>-->
-<!--            <th>ID</th><th>Name</th><th>Email</th>-->
-<!--          </tr>-->
-<!--          </thead>-->
-<!--          <tbody>-->
-<!--          <tr *ngFor="let p of products | async">-->
-<!--            <td>{{p.note}}</td>-->
-<!--            <td>{{p.name}}</td>-->
-<!--            <td>{{p.price}}</td>-->
-<!--            <td>-->
-<!--              <button (click)="handleDeleteProduct(p)" class=" ">-->
-<!--                <i class=" "></i>-->
-<!--              </button>-->
-<!--            </td>-->
-<!--            <td>-->
-<!--              <button (click)="handleproductsProduct(p)" class=" ">-->
-<!--                Accounts-->
-<!--              </button>-->
-<!--            </td>-->
-<!--          </tr>-->
-<!--          </tbody>-->
-<!--        </table>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </ng-container>-->
-<!--  <ng-template #failureOrLoading>-->
-<!--    <ng-container *ngIf="errorMessage; else loading">-->
-<!--      <div class="">-->
-<!--        {{errorMessage}}-->
-<!--      </div>-->
-<!--    </ng-container>-->
-<!--    <ng-template #loading>-->
-<!--      Loading .....-->
-<!--    </ng-template>-->
-<!--  </ng-template>-->
-<!--</div>-->
+  <!--<div class="flex items-center flex-wrap ">-->
+
+
+  <!--<div class="pt-2 relative mx-auto text-gray-600">-->
+  <!--  <form (ngSubmit)="onSubmit(f)" #f="ngForm">-->
+  <!--    <input class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"-->
+  <!--           type="search" name="search"-->
+  <!--           ngModel placeholder="Search">-->
+  <!--    <button type="submit" class="relative right-0 top-0 mt-5 mr-4">-->
+
+  <!--      <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"-->
+  <!--           xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"-->
+  <!--           viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"-->
+  <!--           width="512px" height="512px">-->
+  <!--            <path-->
+  <!--              d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"/>-->
+  <!--          </svg>-->
+  <!--    </button>-->
+  <!--  </form>-->
+  <!--</div>-->
+
+
+  <!--<div class="max-w-m">-->
+  <!--  <div class="flex items-center ">-->
+  <!--    <input-->
+  <!--      class="mx-4 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"-->
+  <!--      id="inline-password" type="text" placeholder="id to search">-->
+  <!--    <button-->
+  <!--      class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" (click)="onSearch()">-->
+  <!--      Search-->
+  <!--    </button>-->
+  <!--  </div>-->
+  <!--</div>-->
+
+  <!--<form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchProducts()">-->
+  <!--  <div class="max-w-m">-->
+  <!--    <div class="flex items-center ">-->
+  <!--      <label class="">Keyword :</label>-->
+  <!--      <input-->
+  <!--        class="form-control mx-4 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"-->
+  <!--        type="text" formControlName="keyword">-->
+  <!--      <button-->
+  <!--        class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" (click)="handleSearchProducts()">-->
+  <!--        Search-->
+  <!--      </button>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</form>-->
+  <!--<p>{{products | json}}</p>-->
+  <!--<tr *ngFor="let p of products | async">-->
+  <!--              <td>{{p.note}}</td>-->
+  <!--              <td>{{p.name}}</td>-->
+  <!--              <td>{{p.price}}</td>-->
+  <!--  <br/>-->
+
+  <!--<p>{{productsss.id}}</p>-->
+  <!--<p>{{productsss.name}}</p>-->
+  <!--<p>{{productsss.quantity}}</p>-->
+  <!--<p>{{productsss.price}}</p>-->
+  <!--<div-->
+  <!--  *ngFor="let p of productss; let i = index">-->
+  <!--  <p>{{p.id}}</p>-->
+  <!--  <p>{{p.name}}</p>-->
+  <!--  <p>{{p.quantity}}</p>-->
+  <!--  <p>{{p.price}}</p>-->
+  <!--</div>-->
+
+
+  <!--<div class="container mt-2">-->
+  <!--  <ng-container *ngIf="products | async as listCustomers; else failureOrLoading">-->
+  <!--    <div class="">-->
+  <!--      <div class="">Customers</div>-->
+  <!--      <div class="">-->
+  <!--        <div *ngIf="searchFormGroup">-->
+  <!--          <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchProducts()">-->
+  <!--            <div class="">-->
+  <!--              <label class="">Keyword :</label>-->
+  <!--              <input type="text" formControlName="keyword" class="form-control">-->
+  <!--              <button class=" ">-->
+  <!--                <i class=" "></i>-->
+  <!--              </button>-->
+  <!--            </div>-->
+  <!--          </form>-->
+  <!--        </div>-->
+  <!--        <table class="">-->
+  <!--          <thead>-->
+  <!--          <tr>-->
+  <!--            <th>ID</th><th>Name</th><th>Email</th>-->
+  <!--          </tr>-->
+  <!--          </thead>-->
+  <!--          <tbody>-->
+  <!--          <tr *ngFor="let p of products | async">-->
+  <!--            <td>{{p.note}}</td>-->
+  <!--            <td>{{p.name}}</td>-->
+  <!--            <td>{{p.price}}</td>-->
+  <!--            <td>-->
+  <!--              <button (click)="handleDeleteProduct(p)" class=" ">-->
+  <!--                <i class=" "></i>-->
+  <!--              </button>-->
+  <!--            </td>-->
+  <!--            <td>-->
+  <!--              <button (click)="handleproductsProduct(p)" class=" ">-->
+  <!--                Accounts-->
+  <!--              </button>-->
+  <!--            </td>-->
+  <!--          </tr>-->
+  <!--          </tbody>-->
+  <!--        </table>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </ng-container>-->
+  <!--  <ng-template #failureOrLoading>-->
+  <!--    <ng-container *ngIf="errorMessage; else loading">-->
+  <!--      <div class="">-->
+  <!--        {{errorMessage}}-->
+  <!--      </div>-->
+  <!--    </ng-container>-->
+  <!--    <ng-template #loading>-->
+  <!--      Loading .....-->
+  <!--    </ng-template>-->
+  <!--  </ng-template>-->
+  <!--</div>-->
 
 
 
