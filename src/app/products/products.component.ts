@@ -15,7 +15,8 @@ export class ProductsComponent implements OnInit {
   products$!: Observable<Array<Product>>;
   errorMessage!: string;
   kw!: string;
-
+  category!: string;
+  categories$!: Observable<Array<any>>;
 // @ViewChild('f') searchForm! : NgForm;
   constructor(
               private productService: ProductService,
@@ -25,6 +26,7 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.categories$ = this.productService.getCategories()
     this.route.queryParams
       .subscribe(
         (queryParams: Params) => {
@@ -32,9 +34,21 @@ export class ProductsComponent implements OnInit {
           console.log(this.kw)
         }
       );
-    this.fetchProducts()
+    if(this.kw!=undefined){this.fetchProducts()}
   }
 
+
+//search by category
+  onFilter(category: string){
+    this.category = category;
+    this.products$ = this.productService.getProductsByCategory(this.category).pipe(
+      catchError(err => {
+        this.errorMessage = err.message;
+        return throwError(err);
+      })
+    );
+
+  }
   onSubmit(form: NgForm) {
     console.log(form)
     const value = form.value;

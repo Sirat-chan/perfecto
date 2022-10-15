@@ -1,0 +1,53 @@
+<div class="profile-details">
+  <div class="profile-details-top d-flex flex-column">
+    <div class="details-top box-shadow">
+      <div class="profile-pic pl-8 py-8">
+        <label class="label" for="file">
+          <span class="uiIconCamera"></span>
+          <span>Change Image</span>
+        </label>
+        <input id="file" type="file" (change)="changeProfilePicture($event)"/>
+        <img class="my-photo" [ngStyle]="
+          {'background-image': 'url(' + (connectedUser.avatar | authImage | async) +')'} " alt=""/>
+      </div>
+    </div>
+    <div class="details-bottom d-flex justify-space-between my-10">
+
+      <div class="bio white-background box-shadow mr-8 pa-5 d-flex">
+        <i class="uiIconBio"></i>
+        <span class="user-bio text-grey width-fit-content">
+      {{ connectedUser.bio }}
+    </span>
+      </div>
+
+      <div class="user-info pa-5 box-shadow white-background">
+        <div class="email d-flex mb-3">
+          <i class="uiIconEmail"></i>
+          <span class="user-email text-grey width-fit-content">
+        {{ connectedUser.email }}
+        </span>
+        </div>
+        <div class="fullName d-flex my-3">
+          <i class="uiIconUser"></i>
+          <span class="user-fullName text-grey width-fit-content">
+      {{ connectedUser.fullName }}
+      </span>
+        </div>
+        <div class="roles d-flex my-3">
+          <i class="uiIconRole"></i>
+          <span class="text-grey width-fit-content">
+        {{ connectedUser.roles }}
+        </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <span
+    class="secondary-color text-header-title-2 text-uppercase width-fit-content">
+  Logged in as {{ connectedUser.username }}
+    .</span>
+  <span class="border-bottom-secondary-color clickable hover-bold" (click)="signOut()">Sign out</span>
+
+</div>

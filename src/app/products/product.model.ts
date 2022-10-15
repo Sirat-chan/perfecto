@@ -5,14 +5,18 @@ export class Product{
  public price : number;
  public availability : boolean;
  public rating : number;
+  public isFavorite : boolean;
 
-  constructor(id: number,name: string, imageS: string, price: number, availability: boolean, rating: number) {
+
+  constructor(id: number,name: string, imageS: string, price: number, availability: boolean, rating: number, isFavorite:boolean) {
     this.id=id;
    this.name=name;
    this.imageSrc=imageS;
    this.price=price;
    this.availability=availability;
    this.rating=rating;
+   this.isFavorite=isFavorite;
+
  }
 }
 

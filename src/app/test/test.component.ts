@@ -11,11 +11,19 @@ import {Router} from "@angular/router";
 export class TestComponent implements OnInit {
   @Input() product!: Product;
   data="abc";
-  @Input() index!: number;
-  constructor(private router: Router) { }
-
+  // @Input() index!: number;
+  arr: any[] = [];
+  index:number = -1;
+  constructor(private router: Router) {     this.arr = [1, 2, 3, 4, 5];
+  }
   ngOnInit(): void {
   }
+
+  onClickItem(index: number) {
+    //console.log(index);
+    this.index = index;
+  }
+
   onLoadLogin() {
     this.router.navigate(['/login'])
   }

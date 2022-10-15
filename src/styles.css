@@ -2,7 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+}
+.tooltip {
+  @apply invisible absolute;
+}
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
+}
+@tailwind utilities;
+
 
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+

@@ -1,2 +1,53 @@
-<li role="presentation" class="active"><a routerLink="/MyFavorites">MyFavorites</a> </li>
-<router-outlet></router-outlet>
+<div class="container py-4 flex  gap-3">
+  <a href="/" class="text-primary text-base">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+      <path
+        d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z"/>
+      <path
+        d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z"/>
+    </svg>
+  </a>
+  <span class="text-sm font-bold text-slate-900">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+  <path fill-rule="evenodd"
+        d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
+        clip-rule="evenodd"/>
+</svg>
+        </span>
+  <p class="text-gray-600 font-bold text-xl pt-0.8">My Favorites</p>
+</div>
+
+<div class="col-span-3 mx-64">
+  <div class="flex items-center mb-4">
+    <select name="sort" id="sort"
+            class="w-44 text-sm text-gray-600 py-3 px-4 border-gray-300 shadow-sm rounded focus:ring-primary focus:border-primary">
+      <option value="">Default sorting</option>
+      <option value="price-low-to-high">Price low to high</option>
+      <option value="price-high-to-low">Price high to low</option>
+      <option value="latest">Latest product</option>
+    </select>
+
+    <div class="flex gap-2 ml-auto">
+      <div
+        class=" border border-primary w-10 h-9 flex items-center justify-center text-gray-600 text-white bg-primary rounded cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgb(255,255,255)"><path d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z"></path></svg>
+      </div>
+      <div
+        class="border border-gray-300 w-10 h-9 flex items-center justify-center text-gray-600 rounded cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+             stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+        </svg>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-3 gap-6">
+    <app-products-item
+      *ngFor="let productEl of products$ | async; let i = index"
+      [product]="productEl"
+      [index]="i"></app-products-item>
+  </div>
+</div>

@@ -3,7 +3,7 @@
   <div class="container flex items-center justify-between">
     <div class="flex items-end">
       <a class="block text-primary" href="/">
-        <img src="../../assets/perfecto-logov2.png" class="h-16">
+        <img src="../../assets/perfecto%20logov2%20copy.svg" class="h-16">
       </a>
       <p class="pr-3 pl-1 text-primary text-2xl font-bold"> Perfecto </p>
     </div>
@@ -18,18 +18,18 @@
              class="w-full border border-primary border-r-0 pl-12 py-3 pr-3 rounded-l-md focus:outline-none"
              placeholder="search">
       <button
-        class="bg-primary border border-primary text-white px-8 rounded-r-md hover:bg-transparent hover:text-primary transition">Search</button>
+        class="bg-primary border border-primary text-white px-8 rounded-r-md hover:bg-transparent hover:text-primary transition text-lg">Search</button>
     </div>
 
     <div class="flex items-center space-x-4">
-      <a href="#" class="text-center text-gray-700 hover:text-primary transition relative">
+      <a routerLink="/myfavorites" class="text-center text-gray-700 hover:text-primary transition relative">
         <div class="text-2xl">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
           </svg>
 
         </div>
-        <div class="text-xs leading-3">Wishlist</div>
+        <div  class="text-xs leading-3">Wishlist</div>
         <div
           class="absolute right-0 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">
           8</div>
@@ -104,13 +104,283 @@
 
     <div class="flex items-center justify-between flex-grow pl-12">
       <div class="flex items-center space-x-6 capitalize">
-        <a href="../index.html" class="text-gray-200 hover:text-white transition">Home</a>
-        <a href="pages/shop.html" class="text-gray-200 hover:text-white transition">Shop</a>
-        <a href="#" class="text-gray-200 hover:text-white transition">About us</a>
+        <a href="/" class="text-gray-200 hover:text-white transition">Home</a>
+        <a routerLink="/products/search"
+           [queryParams]="{keyword:''}" class="text-gray-200 hover:text-white transition">Shop</a>
+        <a routerLink="/about" class="text-gray-200 hover:text-white transition">About us</a>
         <a href="#" class="text-gray-200 hover:text-white transition">Contact us</a>
       </div>
-      <a href="#" class="text-gray-200 hover:text-white transition">Login/Register</a>
+      <button (click)="onLoadLogin()"
+        class="bg-primary border border-primary text-white px-4 rounded-md hover:bg-transparent hover:text-primary transition text-lg">Login/Register</button>
     </div>
   </div>
 </nav>
 <!-- ./navbar -->
+
+<main class="profile-page">
+  <section class="relative block" style="height: 500px;">
+    <div
+      class="absolute top-0 w-full h-full bg-center bg-cover"
+      style='background-image: url("https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80");'
+    >
+      <span
+        id="blackOverlay"
+        class="w-full h-full absolute opacity-50 bg-black"
+      ></span>
+    </div>
+    <div
+      class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
+      style="height: 70px;"
+    >
+      <svg
+        class="absolute bottom-0 overflow-hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        version="1.1"
+        viewBox="0 0 2560 100"
+        x="0"
+        y="0"
+      >
+        <polygon
+          class="text-gray-300 fill-current"
+          points="2560 0 2560 100 0 100"
+        ></polygon>
+      </svg>
+    </div>
+  </section>
+  <section class="relative py-16 bg-gray-300">
+    <div class="container mx-auto px-4">
+      <div
+        class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64"
+      >
+        <div class="px-6">
+          <div class="flex flex-wrap justify-center">
+            <div
+              class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center"
+            >
+              <div class="relative">
+                <img
+                  alt="..."
+                  src="./assets/img/team-2-800x800.jpg"
+                  class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
+                  style="max-width: 150px;"
+                />
+              </div>
+            </div>
+            <div
+              class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center"
+            >
+              <div class="py-6 px-3 mt-32 sm:mt-0">
+                <button
+                  class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
+                  type="button"
+                  style="transition: all 0.15s ease 0s;"
+                >
+                  Connect
+                </button>
+              </div>
+            </div>
+            <div class="w-full lg:w-4/12 px-4 lg:order-1">
+              <div class="flex justify-center py-4 lg:pt-4 pt-8">
+                <div class="mr-4 p-3 text-center">
+                  <span
+                    class="text-xl font-bold block uppercase tracking-wide text-gray-700"
+                  >22</span
+                  ><span class="text-sm text-gray-500">Friends</span>
+                </div>
+                <div class="mr-4 p-3 text-center">
+                  <span
+                    class="text-xl font-bold block uppercase tracking-wide text-gray-700"
+                  >10</span
+                  ><span class="text-sm text-gray-500">Photos</span>
+                </div>
+                <div class="lg:mr-4 p-3 text-center">
+                  <span
+                    class="text-xl font-bold block uppercase tracking-wide text-gray-700"
+                  >89</span
+                  ><span class="text-sm text-gray-500">Comments</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-12">
+            <h3
+              class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2"
+            >
+              Jenna Stones
+            </h3>
+            <div
+              class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase"
+            >
+              <i
+                class="fas fa-map-marker-alt mr-2 text-lg text-gray-500"
+              ></i>
+              Los Angeles, California
+            </div>
+            <div class="mb-2 text-gray-700 mt-10">
+              <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i
+              >Solution Manager - Creative Tim Officer
+            </div>
+            <div class="mb-2 text-gray-700">
+              <i class="fas fa-university mr-2 text-lg text-gray-500"></i
+              >University of Computer Science
+            </div>
+          </div>
+          <div class="mt-10 py-10 border-t border-gray-300 text-center">
+            <div class="flex flex-wrap justify-center">
+              <div class="w-full lg:w-9/12 px-4">
+                <p class="mb-4 text-lg leading-relaxed text-gray-800">
+                  An artist of considerable range, Jenna the name taken by
+                  Melbourne-raised, Brooklyn-based Nick Murphy writes,
+                  performs and records all of his own music, giving it a
+                  warm, intimate feel with a solid groove structure. An
+                  artist of considerable range.
+                </p>
+                <a href="#pablo" class="font-normal text-pink-500"
+                >Show more</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+
+
+
+
+
+
+//new
+<body class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover" style="background-image:url('https://source.unsplash.com/1L71sPT5XKc');">
+
+
+
+<div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+
+  <!--Main Col-->
+  <div id="profile" class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
+
+
+    <div class="p-4 md:p-12 text-center lg:text-left">
+      <!-- Image for mobile view-->
+      <div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/MP0IUfwrn0A')"></div>
+
+      <h1 class="text-3xl font-bold pt-8 lg:pt-0">Sirat Sartouta</h1>
+      <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
+      <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"><svg class="h-4 fill-current text-green-700 pr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9v-2zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9v2zm3-8V2H8v1h4z"/></svg> IsetCom Student | Front-End Web Developper</p>
+      <p class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start"><svg class="h-4 fill-current text-green-700 pr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 20a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm7.75-8a8.01 8.01 0 0 0 0-4h-3.82a28.81 28.81 0 0 1 0 4h3.82zm-.82 2h-3.22a14.44 14.44 0 0 1-.95 3.51A8.03 8.03 0 0 0 16.93 14zm-8.85-2h3.84a24.61 24.61 0 0 0 0-4H8.08a24.61 24.61 0 0 0 0 4zm.25 2c.41 2.4 1.13 4 1.67 4s1.26-1.6 1.67-4H8.33zm-6.08-2h3.82a28.81 28.81 0 0 1 0-4H2.25a8.01 8.01 0 0 0 0 4zm.82 2a8.03 8.03 0 0 0 4.17 3.51c-.42-.96-.74-2.16-.95-3.51H3.07zm13.86-8a8.03 8.03 0 0 0-4.17-3.51c.42.96.74 2.16.95 3.51h3.22zm-8.6 0h3.34c-.41-2.4-1.13-4-1.67-4S8.74 3.6 8.33 6zM3.07 6h3.22c.2-1.35.53-2.55.95-3.51A8.03 8.03 0 0 0 3.07 6z"/></svg> Your Location - Bouselm</p>
+      <p class="pt-8 text-sm">Totally optional short description about yourself, what you do and so on.</p>
+
+      <div class="pt-12 pb-8 has-tooltip">
+        <span class='tooltip rounded shadow-lg p-1 bg-gray-100 text-red-500 px-2 -mt-8'>Get in touch hh </span>
+        <button class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
+          Get In Touch
+        </button>
+      </div>
+      <div class="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between">
+        <a class="link" href="#" data-tippy-content="@facebook_handle"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.408.593 24 1.324 24h11.494v-9.294H9.689v-3.621h3.129V8.41c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63H16.56V24h6.115c.733 0 1.325-.592 1.325-1.324V1.324C24 .593 23.408 0 22.676 0"/></svg></a>
+        <a class="link" href="#" data-tippy-content="@twitter_handle"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg></a>
+        <a class="link" href="#" data-tippy-content="@github_handle"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+        <a class="link" href="#" data-tippy-content="@unsplash_handle"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Unsplash</title><path d="M7.5 6.75V0h9v6.75h-9zm9 3.75H24V24H0V10.5h7.5v6.75h9V10.5z"/></svg></a>
+        <a class="link" href="#" data-tippy-content="@dribble_handle"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Dribbble</title><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.025-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.814zm-11.62-2.58c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.312c0 2.633.998 5.037 2.634 6.855zm-2.42-8.955c.46.008 4.683.026 9.477-1.248-1.698-3.018-3.53-5.558-3.8-5.928-2.868 1.35-5.01 3.99-5.676 7.17zM9.6 2.052c.282.38 2.145 2.914 3.822 6 3.645-1.365 5.19-3.44 5.373-3.702-1.81-1.61-4.19-2.586-6.795-2.586-.825 0-1.63.1-2.4.285zm10.335 3.483c-.218.29-1.935 2.493-5.724 4.04.24.49.47.985.68 1.486.08.18.15.36.22.53 3.41-.43 6.8.26 7.14.33-.02-2.42-.88-4.64-2.31-6.38z"/></svg></a>
+        <a class="link" href="#" data-tippy-content="@instagram_handle"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></a>
+        <a class="link" href="#" data-tippy-content="@youtube_handle"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>YouTube</title><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+      </div>
+
+      <!-- Use https://simpleicons.org/ to find the svg for your preferred product -->
+
+    </div>
+
+  </div>
+
+  <!--Img Col-->
+  <div class="w-full lg:w-2/5">
+    <!-- Big profile image for side bar (desktop) -->
+    <img src="../../assets/received_440300227521422.jpeg" class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block h-130">
+    <!-- Image from: http://unsplash.com/photos/MP0IUfwrn0A -->
+
+  </div>
+
+
+  <!-- Pin to top right corner -->
+  <div class="absolute top-0 right-0 h-12 w-18 p-4">
+    <button class="js-change-theme focus:outline-none">🌙</button>
+  </div>
+
+</div>
+
+<script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@4"></script>
+<script>
+  //Init tooltips
+  tippy('.link',{
+    placement: 'bottom'
+  })
+
+  //Toggle mode
+  const toggle = document.querySelector('.js-change-theme');
+  const body = document.querySelector('body');
+  const profile = document.getElementById('profile');
+
+
+  toggle.addEventListener('click', () => {
+
+    if (body.classList.contains('text-gray-900')) {
+      toggle.innerHTML = "☀️";
+      body.classList.remove('text-gray-900');
+      body.classList.add('text-gray-100');
+      profile.classList.remove('bg-white');
+      profile.classList.add('bg-gray-900');
+    } else
+    {
+      toggle.innerHTML = "🌙";
+      body.classList.remove('text-gray-100');
+      body.classList.add('text-gray-900');
+      profile.classList.remove('bg-gray-900');
+      profile.classList.add('bg-white');
+
+    }
+  });
+
+</script>
+
+</body>
+
+
+
+<div class='has-tooltip'>
+  <span class='tooltip rounded shadow-lg p-1 bg-gray-100 text-red-500 px-2 -mt-8 delay-150'>Some Nice Tooltip Text</span>
+  Custom Position (above)
+</div>
+
+
+<div>
+  <div >
+    <ul>
+      <li    class="mx-2">
+        <svg xmlns="http://www.w3.org/2000/svg" *ngFor="let i of arr;let in=index" (click)="onClickItem(in)" [attr.fill]="index<0?'none':index==0?'#ffed6a':index==1?'#ffec52':index==2?'#ffe418':index==3?'#ffd900':'yellow'" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+        </svg>
+      </li>
+    </ul>
+  </div>
+  <p style="text-align: justify;">
+    The topic of blogging seems to come up a lot in our social media training workshops. The benefits of a quality blog are obvious – fresh content is good for your readers and your rankings. Blogs are easy to set up and even easier to update. We often tell people that if they can use Microsoft Word… they can update a blog.
+
+    As easy as they are to set up, they can be difficult to maintain. A good blog is filled with relevant, timely content that is updated on a regular basis. New bloggers often start out with a bang but then fizzle out when they realize that creating content can be challenging.
+  </p>
+</div>
+
+<div>
+  <div [style.color]="index==0?'#be1100':index==1?'red':index==2?'#f48771':index==3?'#b89500':'green'">
+    <ul>
+      <li *ngFor="let i of arr;let in=index" [style.color]="in>index?'gray':'inherit'" (click)="onClickItem(in)">*</li>
+    </ul>
+  </div>
+</div>

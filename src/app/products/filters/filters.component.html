@@ -159,7 +159,7 @@
       <div class="space-y-2 overflow-auto h-32">
         <div class="flex items-center" *ngFor="let categoryEl of categories$ | async; let i = index">
           <input type="checkbox" name="cat-1" id="cat-1"
-                 class="text-primary focus:ring-0 rounded-sm cursor-pointer">
+                 class="text-primary focus:ring-0 rounded-sm cursor-pointer" >
           <label for="cat-1" class="text-gray-600 ml-3 cusror-pointer">{{categoryEl.name}}</label>
           <div class="ml-auto text-gray-600 text-sm">(15)</div>
         </div>

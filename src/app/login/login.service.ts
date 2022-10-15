@@ -80,17 +80,20 @@ export class LoginService {
     refreshToken: string,
   ) {
     const expiresIn = (JSON.parse(atob(accessToken.split('.')[1]))).exp;
-    const expirationDate = new Date(new Date().getTime() + expiresIn/1000);
+    const expirationDate = new Date(expiresIn*1000);
     const user = new User(username, roles, accessToken, expirationDate, refreshToken);
     this.user.next(user);
     // this.autoLogout(expiresIn * 1000);
     localStorage.setItem('userData', JSON.stringify(user));
   }
 
-
+  public getUser(): string {
+    return localStorage.getItem('userData')|| '{}';
+  }
   public getToken(): string {
+    return JSON.parse(window.localStorage.getItem('userData')|| '{}').accessToken;
     // @ts-ignore
-    return localStorage.getItem('userData');
+
   }
 
   private handleError(errorRes: HttpErrorResponse) {

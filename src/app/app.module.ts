@@ -29,6 +29,9 @@ import { TestComponent } from './test/test.component';
 import { FiltersComponent } from './products/filters/filters.component';
 import { CategoryItemComponent } from './categories/category-item/category-item.component';
 import {AuthInterceptor} from "./login/auth.interceptor";
+import {AuthImagePipe} from "./shared/auth-image.pipe";
+import {ProfileComponent} from "./profile/profile.component";
+import 'boxicons';
 
 
 @NgModule({
@@ -51,7 +54,9 @@ import {AuthInterceptor} from "./login/auth.interceptor";
     ProductInfopageComponent,
     TestComponent,
     FiltersComponent,
-    CategoryItemComponent
+    CategoryItemComponent,
+    AuthImagePipe,
+    ProfileComponent,
   ],
     imports: [
         BrowserModule,
@@ -62,7 +67,8 @@ import {AuthInterceptor} from "./login/auth.interceptor";
         HttpClientModule,
         MatSidenavModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+
     ],
   providers: [
     {
